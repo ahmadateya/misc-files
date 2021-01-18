@@ -57,7 +57,7 @@ commit() {
     else
         printf '%s ' 'please write a commit message: '
         read reply
-        if [ "$1" != "" ]
+        if [ "$reply" != "" ]
         then
             git commit -m "$reply"
         else
