@@ -55,7 +55,7 @@ commit() {
         git commit -m "$1"
 	printf $1
     else
-        printf '%s ' 'please write a commit message'
+        printf '%s ' 'please write a commit message: '
         read reply
         if [ "$1" != "" ]
         then
@@ -65,3 +65,4 @@ commit() {
         fi
     fi
 }
+
