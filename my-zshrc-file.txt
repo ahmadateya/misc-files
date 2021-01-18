@@ -1,0 +1,67 @@
+plugins=(
+ colorize
+ cp
+ history
+ battery
+ themes
+ zsh-autosuggestions)
+
+
+
+# My Aliases
+
+# ssh
+alias sshouredu="ssh user@0000000000" # just to remember the way
+
+# docker
+alias dcupd="docker-compose up -d"
+alias dcdn="docker-compose down"
+
+# kafka
+alias startkafka="kafka-server-start.sh config/server.properties"
+alias startzookeeper="bin/zookeeper-server-start.sh config/zookeeper.properties"
+
+# git
+alias pulldev="git pull origin dev"
+alias push="git push"
+alias status="git status"
+
+
+
+# enhance the script by using DRY in pushall() and commit()
+pushall() {
+    git add .
+    if [ "$1" != "" ]
+    then
+        git commit -m "$1"
+    else
+        git commit -m update
+    fi
+    git push
+}
+
+add() {
+    if [ "$1" != "" ]
+    then
+        git add $1
+    else
+        git add .
+    fi
+}
+
+commit() {
+    if [ "$1" != "" ]
+    then
+        git commit -m "$1"
+	printf $1
+    else
+        printf '%s ' 'please write a commit message'
+        read reply
+        if [ "$1" != "" ]
+        then
+            git commit -m "$reply"
+        else
+            git commit -m update
+        fi
+    fi
+}
