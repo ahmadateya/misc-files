@@ -27,13 +27,12 @@ alias push="git push"
 alias status="git status"
 
 
-
 # enhance the script by using DRY in pushall() and commit()
 pushall() {
     git add .
     if [ "$1" != "" ]
     then
-        git commit -m "$1"
+        git commit -m $1
     else
         git commit -m update
     fi
