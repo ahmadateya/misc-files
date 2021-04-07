@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp"
+    },
+    "code-runner.executorMap": {
+        "cpp": "g++ $fullFileName && ./a.out"
+    }
+}
