@@ -3,7 +3,8 @@
         "iostream": "cpp",
         "*.tcc": "cpp",
         "typeindex": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "random": "cpp"
     },
     "code-runner.executorMap": {
         "cpp": "g++ $fullFileName && ./a.out"
