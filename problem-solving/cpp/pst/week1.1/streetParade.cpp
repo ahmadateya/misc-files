@@ -10,47 +10,60 @@ int main()
     // to make the cin & cout fast
     IOS
 
-    /* pseudo code
+    /* ###################### pseudo code ######################
      * read all the cars
      * reorder all of them (new var) // dont need to it, use the n in the first element
      * loop throw the input and check on every element if
      *      -   the element in the right order => push to a new output array
      *      -   not in the right order check if
-     *              => push to the stack
+     *              - first element => push to the stack
+     *              - any element => check if the stack has the right element
+     *                      - if has pop and push the output array
+     *                      - if not push the element to the stack
+     *              - last element => dont know
+     *      -   if the stack is empty and all of them in the output
+     *              - the problem can be solved, print "YES"
+     *              - the problem cant be solved, print "NO"
      *
      * */
 
 
-
-    // reading
-    int segmentsNumber, upperBound;
-    cin >> segmentsNumber >> upperBound;
-
-    vector<int> l, r;
-
-    for (int i = 0; i < segmentsNumber; i++) {
-        int a, b;
-        cin >> a >> b;
-        l.push_back(a), r.push_back(b);
-    }
-
-    // process
-    vector<bool> pointsMap(101, 0);
-
-    for (int i = 0; i < segmentsNumber; i++) {
-        for (int j = l[i]; j <= r[i]; j++) {
-            pointsMap[j] = 1;
+    int carsCount;
+    cin >> carsCount;
+    int carsInputArr[1000];
+    for (int i = 1; i <= carsCount; i++) cin >> carsInputArr[i];
+    stack<int> carsStack;
+//    for (int i = 1; i <= carsCount; i++) {
+//        int carNumber = carsInputArr[i];
+//        carsStack.push(carNumber);
+//        cout << (carsStack.top() == 1);
+//    }
+//    return  0;
+    for (int i = 1; i <= carsCount; i++) {
+        int carNumber = carsInputArr[i];
+        if (carNumber == i) { // car in the right order
+            cout << "carNumber == i" << "carNumber " << carNumber << "i " << i <<"continue";
+            continue;
+        } else {
+//            if (!carsStack.empty()) cout << carsStack.top();
+//            return 0;
+            if (!carsStack.empty() && carsStack.top() == carNumber) { // stack is not empty
+                carsStack.pop();
+                cout << "//carsStack.pop()" << "carNumber " << carNumber << "i " << i <<"continue";
+                continue;
+            }
+            carsStack.push(carNumber);
+            cout << "carsStack.push()" << "carNumber " << carNumber << "i " << i <<"continue";
         }
-    }
 
-    vector<int> leftPoints;
-
-    for (int i = 1; i <= upperBound; i++)
-        if (pointsMap[i] == 0)
-            leftPoints.push_back(i);
-
-    // output
-    cout << leftPoints.size() << endl;
-    for (int i = 0; i < leftPoints.size(); i++)
-        cout << leftPoints[i] << " ";
+        // the last element
+        if (i == carsCount) {
+            cout << "last count" << "carNumber " << carNumber << "i " << i <<"continue";
+            if (carsStack.empty())
+                cout << "YES";
+                return  0;
+            }// 5 1 2 4 3
+            cout << "NO";
+            return  0;
+        }
 }

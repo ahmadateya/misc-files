@@ -41,13 +41,13 @@ int main()
     int studentsNumber, teamNumber;
     cin >> studentsNumber >> teamNumber;
 
-    int stundetsRatings[studentsNumber];
-    for (int i = 0; i < studentsNumber; i++) cin >> stundetsRatings[i];
+    int studentsRatings[studentsNumber];
+    for (int i = 0; i < studentsNumber; i++) cin >> studentsRatings[i];
 
     // process
-    vector<int> distinctIndexes = getDistinct(stundetsRatings, studentsNumber);
+    vector<int> distinctIndexes = getDistinct(studentsRatings, studentsNumber);
 
-    // outputing
+    // outputting
     if (distinctIndexes.size() < teamNumber)
         cout << "NO\n";
     else {
