@@ -12,25 +12,27 @@ int main()
 {
     // to make the cin & cout fast
     IOS
-    int times;
-    cin >> times;
-    while (times --) {
-        cin >> n;
-        for (int i = 0; i < n; i++) {
+    int t;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        int op = 0;
+
+        for(int i = 0; i < n; i++){
             int x;
+            cin>>x;
             st.insert(x);
         }
-        int op = 0;
-        while (!st.empty()) {
+        while(!st.empty()){
             int val = *st.begin();
-            if (val % 2 == 1) {
+            if(val % 2 == 1) st.erase(st.begin());
+            else{
                 st.erase(st.begin());
-            } else {
-                st.insert(val/ 2);
-                st.erase(st.begin());
-                op++;
+                st.insert(val / 2);
+                op ++;
             }
         }
-        cout <<op<<endl;
+        cout<<op<<endl;
     }
+    return 0;
 }
