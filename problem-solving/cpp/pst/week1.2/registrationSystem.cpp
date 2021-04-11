@@ -13,14 +13,15 @@ int main()
     IOS
     int n;
     cin >> n;
-    for (int i = 0; i < n; ++i) {
-        string username;
-        cin >> username;
-        if (mp[username] == 0){
-            cout<< "OK"<<endl;
-        } else {
-            cout <<username<<mp[username]<<endl;
-            mp[username]++;
+    for (int i = 0; i < n; i++){
+        string s;
+        cin>>s;
+        if(mp.find(s) == mp.end()){
+            cout<<"OK"<<endl;
+            mp[s] = 1;
+        } else{
+            cout<<s<<mp[s]++<<endl;
         }
     }
+    return 0;
 }
