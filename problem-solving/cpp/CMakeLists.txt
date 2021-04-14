@@ -13,6 +13,7 @@ set(BUILD_2 makeThemOdd)
 set(SOURCE_FILES_2 pst/week1.2/makeThemOdd.cpp)
 add_executable(${BUILD_2} ${SOURCE_FILES_2})
 
-set(BUILD_3 averageLength)
-set(SOURCE_FILES_3 pst/week2.1/averageLength.cpp)
+# week2.1 problems
+set(BUILD_3 removeSmallest)
+set(SOURCE_FILES_3 pst/week2.1/removeSmallest.cpp)
 add_executable(${BUILD_3} ${SOURCE_FILES_3})
