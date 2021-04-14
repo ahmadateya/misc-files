@@ -4,8 +4,8 @@ project(test_build)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 # week1.1 problems
-set(BUILD_1 easyStack)
-set(SOURCE_FILES_1 pst/week1.1/easyStack.cpp)
+set(BUILD_1 adaAndQueue)
+set(SOURCE_FILES_1 pst/week1.1/adaAndQueue.cpp)
 add_executable(${BUILD_1} ${SOURCE_FILES_1})
 
 # week1.2 problems
