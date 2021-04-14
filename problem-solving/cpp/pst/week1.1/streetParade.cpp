@@ -5,65 +5,53 @@ using namespace std;
 #define endl "\n"
 #define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-int main()
-{
-    // to make the cin & cout fast
+int main() {
     IOS
+    int n;
+    cin >> n;
+    while (n) { // ends when zero
+        int a[n]; // array of size n (number of cars)
 
-    /* ###################### pseudo code ######################
-     * read all the cars
-     * reorder all of them (new var) // dont need to it, use the n in the first element
-     * loop throw the input and check on every element if
-     *      -   the element in the right order => push to a new output array
-     *      -   not in the right order check if
-     *              - first element => push to the stack
-     *              - any element => check if the stack has the right element
-     *                      - if has pop and push the output array
-     *                      - if not push the element to the stack
-     *              - last element => dont know
-     *      -   if the stack is empty and all of them in the output
-     *              - the problem can be solved, print "YES"
-     *              - the problem cant be solved, print "NO"
-     *
-     * */
+        stack<int> s;
+        vector<int> mainStreet;
 
-
-    int carsCount;
-    cin >> carsCount;
-    int carsInputArr[1000];
-    for (int i = 1; i <= carsCount; i++) cin >> carsInputArr[i];
-    stack<int> carsStack;
-//    for (int i = 1; i <= carsCount; i++) {
-//        int carNumber = carsInputArr[i];
-//        carsStack.push(carNumber);
-//        cout << (carsStack.top() == 1);
-//    }
-//    return  0;
-    for (int i = 1; i <= carsCount; i++) {
-        int carNumber = carsInputArr[i];
-        if (carNumber == i) { // car in the right order
-            cout << "carNumber == i" << "carNumber " << carNumber << "i " << i <<"continue";
-            continue;
-        } else {
-//            if (!carsStack.empty()) cout << carsStack.top();
-//            return 0;
-            if (!carsStack.empty() && carsStack.top() == carNumber) { // stack is not empty
-                carsStack.pop();
-                cout << "//carsStack.pop()" << "carNumber " << carNumber << "i " << i <<"continue";
-                continue;
+        for (int i = 0; i < n; i++) {
+            cin >> a[i]; // reading the cars to the array
+            if (s.size() == 0)
+                s.push(a[i]); // if the stack is empty push a car
+            else {
+                // while there is a cars in the stack, and
+                // the cars order is lower than the car that i have a[i]
+                while (s.size() > 0 && s.top() < a[i]) {
+                    // push_back the car (== at the end) to the main street
+                    mainStreet.push_back(s.top());
+                    // pop it from the stack
+                    s.pop();
+                }
+                // if the car order in the stack is higher than the car i have a[i]
+                // push it to the stack
+                s.push(a[i]);
             }
-            carsStack.push(carNumber);
-            cout << "carsStack.push()" << "carNumber " << carNumber << "i " << i <<"continue";
         }
 
-        // the last element
-        if (i == carsCount) {
-            cout << "last count" << "carNumber " << carNumber << "i " << i <<"continue";
-            if (carsStack.empty())
-                cout << "YES";
-                return  0;
-            }// 5 1 2 4 3
-            cout << "NO";
-            return  0;
+        // after reading all the values and processing it
+        // if there is still a cars in the stack push it to the mainStreet
+        while (s.size() > 0) {
+            mainStreet.push_back(s.top());
+            s.pop();
         }
+
+        bool flag = 1;
+        // loop through the mainStreet to know if the cars in the right order
+        for (int i = 0; i < n - 1; i++) {
+            if (mainStreet[i] > mainStreet[i + 1]) {
+                flag = 0;
+                break;
+            }
+        }
+
+        if (flag == 1)cout << "yes\n";
+        else cout << "no\n";
+        cin >> n;
+    }
 }
