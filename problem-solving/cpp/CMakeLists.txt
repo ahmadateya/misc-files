@@ -14,6 +14,6 @@ set(SOURCE_FILES_2 pst/week1.2/makeThemOdd.cpp)
 add_executable(${BUILD_2} ${SOURCE_FILES_2})
 
 # week2.1 problems
-set(BUILD_3 automateTheGrades)
-set(SOURCE_FILES_3 pst/week2.1/automateTheGrades.cpp)
+set(BUILD_3 twoArraysAndSwaps)
+set(SOURCE_FILES_3 pst/week2.1/twoArraysAndSwaps.cpp)
 add_executable(${BUILD_3} ${SOURCE_FILES_3})
