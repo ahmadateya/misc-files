@@ -8,12 +8,12 @@ set(BUILD_1 ferryLoadingVI)
 set(SOURCE_FILES_1 pst/week1.1/ferryLoadingVI.cpp)
 add_executable(${BUILD_1} ${SOURCE_FILES_1})
 
-# week1.2 problems
-set(BUILD_2 makeThemOdd)
-set(SOURCE_FILES_2 pst/week1.2/makeThemOdd.cpp)
+# week2.2 problems
+set(BUILD_2 systemOfEquations)
+set(SOURCE_FILES_2 pst/week2.2/systemOfEquations.cpp)
 add_executable(${BUILD_2} ${SOURCE_FILES_2})
 
 # week2.2 problems
-set(BUILD_3 team)
-set(SOURCE_FILES_3 pst/week2.2/team.cpp)
+set(BUILD_3 threeDisplays)
+set(SOURCE_FILES_3 pst/week2.2/threeDisplays.cpp)
 add_executable(${BUILD_3} ${SOURCE_FILES_3})
