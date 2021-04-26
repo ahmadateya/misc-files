@@ -4,6 +4,7 @@ using namespace std;
 #define endl "\n"
 #define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
+// solution https://ideone.com/N1l6Cl
 int n;
 
 int main() {
