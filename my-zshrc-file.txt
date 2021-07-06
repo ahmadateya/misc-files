@@ -8,10 +8,13 @@ plugins=(
 
 
 
+
 # My Aliases
 
 # ssh
-alias sshouredu="ssh user@0000000000" # just to remember the way
+alias sshouredu="ssh root@172.104.224.197"
+alias sshouredu2="ssh root@139.162.189.79"
+
 
 # docker
 alias dcupd="docker-compose up -d"
@@ -26,6 +29,13 @@ alias pulldev="git pull origin dev"
 alias push="git push"
 alias status="git status"
 
+
+# open folders from terminal
+alias open="nautilus ." 
+
+# GitHub commands
+alias prtodev="gh pr create -B dev"
+alias prlist="gh pr list"
 
 # enhance the script by using DRY in pushall() and commit()
 pushall() {
