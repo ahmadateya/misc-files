@@ -15,29 +15,64 @@ plugins=(
 alias sshouredu="ssh root@172.104.224.197"
 alias sshouredu2="ssh root@139.162.189.79"
 
+#==============================================================
 
 # docker
 alias dcupd="docker-compose up -d"
 alias dcdn="docker-compose down"
 
+# docker inspect the and get the exposed IP from docker container to the host machine
+dockerInspect() {
+    if [ "$1" != "" ]
+    then
+    	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1
+    else
+        printf '%s ' 'please enter the container name: '
+        read reply
+        if [ "$reply" != "" ]
+        then
+            docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $reply
+        else
+            git commit -m update
+        fi
+    fi
+}
+
+#==============================================================
+
+# Golang
+alias go_test="go test -v --bench . --benchmem"
+
+
+#==============================================================
+
 # kafka
 alias startkafka="kafka-server-start.sh config/server.properties"
 alias startzookeeper="bin/zookeeper-server-start.sh config/zookeeper.properties"
+
+#==============================================================
 
 # git
 alias pulldev="git pull origin dev"
 alias push="git push"
 alias status="git status"
 
+#==============================================================
 
 # open folders from terminal
 alias open="nautilus ." 
 
-# GitHub commands
+#==============================================================
+
+# GitHub CLI commands
+# create a PR to the dev branch
 alias prtodev="gh pr create -B dev"
 alias prlist="gh pr list"
 
-# enhance the script by using DRY in pushall() and commit()
+#==============================================================
+
+# TODO enhance the script by using DRY in pushall() and commit()
+# Git commands
 pushall() {
     git add .
     if [ "$1" != "" ]
@@ -49,6 +84,7 @@ pushall() {
     git push
 }
 
+# shortcut for git add command
 add() {
     if [ "$1" != "" ]
     then
@@ -58,6 +94,7 @@ add() {
     fi
 }
 
+# shortcut for git commit command
 commit() {
     if [ "$1" != "" ]
     then
@@ -74,4 +111,5 @@ commit() {
         fi
     fi
 }
+  
     
