@@ -32,8 +32,21 @@ dockerInspect() {
         if [ "$reply" != "" ]
         then
             docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $reply
-        else
-            git commit -m update
+        fi
+    fi
+}
+
+# docker exec command
+dockerExec() {
+    if [ "$1" != "" ]
+    then
+    	docker exec -it $1 bash
+    else
+        printf '%s ' 'please enter the container name: '
+        read reply
+        if [ "$reply" != "" ]
+        then
+            docker exec -it $reply bash
         fi
     fi
 }
