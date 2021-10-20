@@ -53,6 +53,23 @@ dockerExec() {
 
 #==============================================================
 
+# Kubernetes k8s
+# kubectl exec command, to get inside a pod
+kubectlExec() {
+    if [ "$1" != "" ]
+    then
+    	kubectl exec --stdin --tty $1 /bin/bash
+    else
+        printf '%s ' 'please enter the pod name: '
+        read reply
+        if [ "$reply" != "" ]
+        then
+            kubectl exec --stdin --tty $reply /bin/bash
+        fi
+    fi
+}
+#==============================================================
+
 # Golang
 alias go_test="go test -v --bench . --benchmem"
 
