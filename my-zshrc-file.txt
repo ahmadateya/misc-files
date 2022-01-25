@@ -56,6 +56,11 @@ dockerExec() {
 #==============================================================
 
 # Kubernetes k8s
+
+# generate a token to access k8s dashboard
+alias generateK8sToken="kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')"
+
+
 # kubectl exec command, to get inside a pod
 kubectlExec() {
     if [ "$1" != "" ]
