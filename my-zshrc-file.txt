@@ -1,9 +1,11 @@
 plugins=(
  colorize
  cp
+ git
  history
  battery
  themes
+ zsh-syntax-highlighting
  zsh-autosuggestions)
 
 
