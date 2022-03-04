@@ -5,7 +5,6 @@ plugins=(
  history
  battery
  themes
- zsh-syntax-highlighting
  zsh-autosuggestions)
 
 
