@@ -1,9 +1,8 @@
 plugins=(
  colorize
- cp
- git
+# cp
  history
- battery
+# battery
  themes
  zsh-autosuggestions)
 
